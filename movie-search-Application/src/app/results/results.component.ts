@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ResultsService } from './results.service';
+import { DetailResultService } from '../detail-result/detail-result.service';
 
 @Component({
   selector: 'app-results',
@@ -11,12 +12,12 @@ export class ResultsComponent implements OnInit {
 /*   movies=[] ;
  */  details;
 
-  constructor(public resultsService:ResultsService ) { }
+  constructor(public resultsService:ResultsService,
+              public detailsResultService:DetailResultService ) { }
 
-  getDetails(whatttt){
-    alert("to do");/* **** */
-/*     this.setMovies(moviesArr);
- */  };
+  getDetails(imdbID:string){
+    this.detailsResultService.getDetails(imdbID);
+  };
 
 
   ngOnInit(): void {

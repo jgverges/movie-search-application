@@ -1,28 +1,29 @@
-<!-- <div id="details" class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+<div id="details" class="col-xl-5 col-lg-12 tm-md-12 tm-sm-12 tm-col ">
     <div class="bg-white tm-block h-100 pt-3">
-        <h2 class="tm-block-title d-inline-block mb-3 ">Detail</h2>
-        <div *ngIf="details">
+        <h2 class="tm-block-title d-inline-block mb-3  ">Detail</h2>
+        <div *ngIf="detailResultService.details">
 
             <div class="row  justify-content-center" id="poster">
-                <img src="{{details.Poster}}" alt="details Poster" height="200px">
+                <img src="{{detailResultService.details.Poster}}" alt="details Poster" height="200px">
             </div>
             <table class="table table-hover table-striped mt-3">
                 <tbody>
                     <tr>
-                        <td><b>Title: </b> {{details.Title}}</td>
+                        <td><b>Title: </b> {{detailResultService.details.Title}}</td>
                     </tr>
                     <tr>
-                        <td><b>Director: </b> {{details.Director}}</td>
+                        <td><b>Director: </b> {{detailResultService.details.Director}}</td>
                     </tr>
                     <tr>
-                        <td><b>Actors: </b> {{details.Actors}}</td>
+                        <td><b>Actors: </b> {{detailResultService.details.Actors}}</td>
                     </tr>
                     <tr>
-                        <td><b>Year: </b> {{details.Year}} </td>
+                        <td><b>Year: </b> {{detailResultService.details.Year}} </td>
                     </tr>
 
                 </tbody>
             </table>
         </div>
     </div>
-</div> -->
+</div>
+

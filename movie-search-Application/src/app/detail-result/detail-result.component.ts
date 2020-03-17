@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DetailResultService } from './detail-result.service';
 
 @Component({
   selector: 'app-detail-result',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(public detailResultService:DetailResultService) { }
 
   ngOnInit(): void {
   }
+  getDetails(){
 
+  }
 }
