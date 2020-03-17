@@ -2,14 +2,14 @@
     <div class="col-xl-8 col-lg-12 tm-md-12 tm-sm-12 tm-col">
         <div class="bg-white tm-block h-100 pt-3">
             <div class="row">
-                <div class="col-md-8 col-sm-12">
-                    <h2 class="tm-block-title d-inline-block mb-3 ">Search results</h2>
+                <div class="col-md-8 col-sm-12"><!--  -->
+                    <h2 class="tm-block-title d-inline-block mb-3 "> Search results</h2>
                 </div>
             </div>
             <div class="table-responsive" id="searchResults">
                 <table class="table table-hover table-striped tm-table-striped-even mt-3">
                     <tbody>
-                        <tr *ngFor="let movie of movies">
+                        <tr *ngFor="let movie of resultsService.movies">
                             <td class="tm-product-name" (click)="getDetails(movie.imdbID)">
                                 <span class="detailList">
                                     {{movie.Title}}
@@ -25,7 +25,7 @@
 
 <!--     <app-detail-result></app-detail-result>
 --> 
-<!--     <div id="details" class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
+   <div id="details" class="col-xl-4 col-lg-12 tm-md-12 tm-sm-12 tm-col">
         <div class="bg-white tm-block h-100 pt-3">
             <h2 class="tm-block-title d-inline-block mb-3 ">Detail</h2>
             <div *ngIf="details">
@@ -52,7 +52,7 @@
                 </table>
             </div>
         </div>
-    </div> -->
+    </div> 
 
 
 

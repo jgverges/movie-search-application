@@ -8,19 +8,16 @@ import { ResultsService } from './results.service';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-  movies=[] ;
-  details;
+/*   movies=[] ;
+ */  details;
 
   constructor(public resultsService:ResultsService ) { }
 
   getDetails(whatttt){
     alert("to do");/* **** */
-    this.setMovies();
-  };
+/*     this.setMovies(moviesArr);
+ */  };
 
-  setMovies(){
-    this.resultsService.setMovies("test");
-  }
 
   ngOnInit(): void {
   }

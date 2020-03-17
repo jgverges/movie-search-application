@@ -10,10 +10,10 @@ import { ResultsService } from '../results/results.service';
 })
 
 export class MoviesService {
-                      addItem:boolean= false;
+                      addItem:boolean= false;/*  */
   hasResults:boolean = false;
   movies: [] ;
-              starOn:boolean= false;
+              starOn:boolean= false;/*  */
 
   constructor(public http: HttpClient,
               public resultsService: ResultsService) { }
@@ -25,7 +25,7 @@ export class MoviesService {
         this.movies=data['Search'];
         this.hasResults = true;
         this.addItem=false;
-        this.resultsService.setMovies(this.movies);                              console.log(this.movies);/*  */
+        this.resultsService.setMovies(this.movies);    /* ** */                          console.log(this.movies);/*  */
         }
     });
   }
