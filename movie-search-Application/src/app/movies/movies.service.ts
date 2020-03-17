@@ -10,13 +10,26 @@ import { Movie } from '../models/movie';
 
 export class MoviesService {
   addItem:boolean= false;
-  favorites: Array<{name:string,count:number}>= [{name:"casa",count:1},{name:"star",count:null},{name:"",count:null}];
+  public favorites: Array<{name:string,count:number}>= [{name:"camello",count:99},{name:"patata",count:77},{name:"",count:null}];
   hasResults:boolean = false;
   movies: [] ;
   starOn:boolean= false;
+  items=[{name:"camello",count:9},{name:"pa",count:10},{name:"",count:null}];
 
   constructor(public http: HttpClient) { }
 
+  setFavoritesItems(favoritesItems){
+    this.items.push(favoritesItems);
+  }
+  getFavoritesItems(){
+    this.items.sort(function (a, b) {
+      if (a.count > b.count) return -1;
+      if (a.count < b.count) return 1;     
+      return 0;
+    });
+
+    return this.items;
+  }
   getMovies(movieTitle:any){
     this.hasResults = false;
     this.getByTitle(movieTitle.value).subscribe(data =>{
@@ -24,7 +37,7 @@ export class MoviesService {
         this.movies=data['Search'];
         this.hasResults = true;
         this.addItem=false;
-        console.log(this.movies, this.favorites[0].count);/*  */
+        //console.log(this.movies, this.favorites[0].count);/*  */
         this.incresasesFavorites(movieTitle);
           }
     });
@@ -38,7 +51,13 @@ export class MoviesService {
     return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&i='+imdbID);
   }
   /* * */
+  getFav(favoritesS){      console.warn(favoritesS);/*  */
+    favoritesS=this.favorites; console.warn(favoritesS);/*  */
+    return favoritesS;
+  }
   incresasesFavorites(movieTitle:any){
+/*     this.favorites.push({name:movieTitle.value, count:1});console.log(this.favorites);
+    return this.favorites;/*  */  
     let exist= false;
     if (this.hasResults)  {                           
         this.starOn=true; 
@@ -46,9 +65,9 @@ export class MoviesService {
           if (item.name ==movieTitle.value){
             exist=true;
             item.count++;
-          }
-        });              this.favorites.push({name:movieTitle.value, count:1});console.warn(this.favorites);/* ***** */
-        if(!exist && this.addItem) {          console.log("exist= "+movieTitle.value);
+          }      
+        });    console.warn(this.favorites);         // this.favorites.push({name:movieTitle.value, count:1});console.warn(this.favorites);/* ***** */
+        if(!exist && this.addItem) {         // console.log("exist= "+movieTitle.value);
           this.favorites.push({name:movieTitle.value, count:1});
         } 
     }

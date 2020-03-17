@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl} from '@angular/forms';
 
-import { MoviesService } from '../../services/movies.service';
+import { MoviesService } from './movies.service';
 
 @Component({
   selector: 'app-movies',
