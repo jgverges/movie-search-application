@@ -17,39 +17,39 @@ export class MoviesService {
 
   constructor(public http: HttpClient) { }
 
-  getMovies(title:any){
+  getMovies(movieTitle:any){
     this.hasResults = false;
-    this.getByTitle(title.value).subscribe(data =>{
+    this.getByTitle(movieTitle.value).subscribe(data =>{
       if (data['Response']=="True"){
         this.movies=data['Search'];
         this.hasResults = true;
         this.addItem=false;
         console.log(this.movies, this.favorites[0].count);/*  */
-        this.incresasesFavorites(title);
+        this.incresasesFavorites(movieTitle);
           }
     });
     return this.favorites;/*  */
   }
-  getByTitle(title:string):Observable<Movie> {
-    return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&s='+title);
+  getByTitle(movieTitle:string):Observable<Movie> {
+    return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&s='+movieTitle);
   }
   /* ****** */
   getByImdbIDd(imdbID:string):Observable<Movie> {
     return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&i='+imdbID);
   }
   /* * */
-  incresasesFavorites(title:any){
+  incresasesFavorites(movieTitle:any){
     let exist= false;
     if (this.hasResults)  {                           
         this.starOn=true; 
         this.favorites.forEach(item =>{ 
-          if (item.name ==title.value){
+          if (item.name ==movieTitle.value){
             exist=true;
             item.count++;
           }
-        })
-        if(!exist && this.addItem) {
-          this.favorites.push({name:title.value, count:1});
+        });              this.favorites.push({name:movieTitle.value, count:1});console.warn(this.favorites);/* ***** */
+        if(!exist && this.addItem) {          console.log("exist= "+movieTitle.value);
+          this.favorites.push({name:movieTitle.value, count:1});
         } 
     }
     else return;

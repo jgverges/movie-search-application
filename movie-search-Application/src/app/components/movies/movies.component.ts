@@ -9,7 +9,7 @@ import { MoviesService } from '../../services/movies.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent  {
-  title =  new FormControl('');
+  movieTitle =  new FormControl('');
   starOn:boolean= false;
   addItem:boolean;
   hasResults:boolean = false;
@@ -18,9 +18,9 @@ export class MoviesComponent  {
   constructor(private moviesService:MoviesService) {
    }
 
-  getMovies(title:any){
+  getMovies(movieTitle:any){
     this.starOn= false;
-    this.moviesService.getMovies(title);
+    this.moviesService.getMovies(movieTitle);
   }
 
 }

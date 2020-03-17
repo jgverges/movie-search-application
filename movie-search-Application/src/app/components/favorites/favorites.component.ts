@@ -8,17 +8,19 @@ import { MoviesService } from '../../services/movies.service';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent {
-  favorites: Array<{name:string,count:number}>= [{name:"casa",count:9},{name:"star",count:7},{name:"",count:null}];
+  addItem:boolean;
+  favorites: Array<{name:string,count:number}>= [{name:"casa",count:9},{name:"",count:null},{name:"",count:null}];
   starOn:boolean= false;
+  hasResults:boolean;
+  @Input() movieTitle:any;
 
-  @Input() title:any;
-/*   favorites: Array<{name:string,count:number}>= [{name:"casa",count:9},{name:"star",count:7},{name:"",count:null}];
- */
   constructor(public moviesService:MoviesService) { }
-  addFavorite(title:any):void{  
-    console.log("entra con title="+title.value);
-/*     this.addItem=true;
- */    this.moviesService.incresasesFavorites(title);
+
+  addFavorite(movieTitle:any){  
+              console.log("entra con movieTitle="+movieTitle.value);/*  */
+    this.addItem=true;
+    this.moviesService.incresasesFavorites(movieTitle);
+    return this.favorites;
   }
 
 
