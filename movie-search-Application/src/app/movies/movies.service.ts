@@ -14,11 +14,11 @@ export class MoviesService {
   hasResults:boolean = false;
   movies: [] ;
   starOn:boolean= false;
-  items=[{name:"camello",count:9},{name:"pa",count:10},{name:"",count:null}];
-
+/*   items=[{name:"camello",count:9},{name:"pa",count:10},{name:"",count:null}];
+ */
   constructor(public http: HttpClient) { }
 
-  setFavoritesItems(favoritesItems){
+/*   setFavoritesItems(favoritesItems){
     this.items.push(favoritesItems);
   }
   getFavoritesItems(){
@@ -30,7 +30,7 @@ export class MoviesService {
 
     return this.items;
   }
-  getMovies(movieTitle:any){
+ */  getMovies(movieTitle:any){
     this.hasResults = false;
     this.getByTitle(movieTitle.value).subscribe(data =>{
       if (data['Response']=="True"){
