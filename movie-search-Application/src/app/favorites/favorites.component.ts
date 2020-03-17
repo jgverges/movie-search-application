@@ -8,11 +8,10 @@ import { FavoritesService } from './favorites.service';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent {
-/*   addItem:boolean;
- */  favorites: Array<{name:string,count:number}>;
+  favorites: Array<{name:string,count:number}>;
   starOn:boolean= false;
-/*   hasResults:boolean;
- */  
+  hasResults:boolean=true;
+  
   @Input() movieTitle:any;
 
   constructor(public favoriteService:FavoritesService) { }
@@ -21,12 +20,12 @@ export class FavoritesComponent {
     this.favorites=this.favoriteService.getFavoritesItems();
   }
   addFavorite(movieTitle:any){  
+    if (!this.hasResults){return};
     this.starOn= true;
-/*     this.addItem=true;
- */    this.favoriteService.setFavoritesItems({name:"patata",count:77});
-/*     this.favoriteService.incresasesFavorites(movieTitle);
+/*     this.favoriteService.setFavoritesItems({name:"patata",count:77});
  */    
-      this.favorites=this.favoriteService.getFavoritesItems();
+    this.favoriteService.incresasesFavorites(movieTitle);
+    this.favorites=this.favoriteService.getFavoritesItems();
 
     console.log(this.favorites);
     
