@@ -10,10 +10,7 @@ import { MoviesService } from './movies.service';
 })
 export class MoviesComponent  {
   movieTitle =  new FormControl('');
-  starOn:boolean= false;
-  addItem:boolean;
-  hasResults:boolean = false;
-  favorites: Array<{name:string,count:number}>= [{name:"casa",count:9},{name:"star",count:7},{name:"",count:null}];
+  starOn:boolean;
 
   constructor(private moviesService:MoviesService) {
    }

@@ -11,7 +11,7 @@ import { ResultsService } from '../results/results.service';
 
 export class MoviesService {
                       addItem:boolean= false;/*  */
-  hasResults:boolean = false;
+  hasResults:boolean;/*  */
   movies: [] ;
               starOn:boolean= false;/*  */
 
@@ -19,12 +19,12 @@ export class MoviesService {
               public resultsService: ResultsService) { }
  
   getMovies(movieTitle:any){
-    this.hasResults = false;
+    this.hasResults = false;/*  */
     this.getByTitle(movieTitle.value).subscribe(data =>{
       if (data['Response']=="True"){
         this.movies=data['Search'];
-        this.hasResults = true;
-        this.addItem=false;
+        this.hasResults = true;/*  */
+        this.addItem=false;/*  */
         this.resultsService.setMovies(this.movies);    /* ** */                          console.log(this.movies);/*  */
         }
     });

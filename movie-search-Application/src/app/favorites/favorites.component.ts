@@ -22,13 +22,8 @@ export class FavoritesComponent {
   addFavorite(movieTitle:any){  
     if (!this.hasResults){return};
     this.starOn= true;
-/*     this.favoriteService.setFavoritesItems({name:"patata",count:77});
- */    
     this.favoriteService.incresasesFavorites(movieTitle);
     this.favorites=this.favoriteService.getFavoritesItems();
-
-    console.log(this.favorites);
-    
   }
 
 
