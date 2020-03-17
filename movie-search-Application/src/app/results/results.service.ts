@@ -6,4 +6,9 @@ import { Injectable } from '@angular/core';
 export class ResultsService {
 
   constructor() { }
+  /*  */
+  setMovies(movies){
+    
+    alert("works");
+  }
 }

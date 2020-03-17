@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 
 import { Movie } from '../models/movie';
+import { ResultsService } from '../results/results.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class MoviesService {
   movies: [] ;
               starOn:boolean= false;
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,
+              public resultsService: ResultsService) { }
  
   getMovies(movieTitle:any){
     this.hasResults = false;
@@ -23,7 +25,7 @@ export class MoviesService {
         this.movies=data['Search'];
         this.hasResults = true;
         this.addItem=false;
-                                        console.log(this.movies);/*  */
+        this.resultsService.setMovies(this.movies);                              console.log(this.movies);/*  */
         }
     });
   }
@@ -31,4 +33,6 @@ export class MoviesService {
   getByTitle(movieTitle:string):Observable<Movie> {
     return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&s='+movieTitle);
   }
+  
+
 }
