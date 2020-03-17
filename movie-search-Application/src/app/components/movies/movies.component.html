@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12 ">
+        <nav class="navbar navbar-expand-xl  bg-light mt-3 ">
+            <div id="search" class="col-md-6 pt-2">
+                <p class="mb-0"> Search by title </p>
+            
+                <div class="input-group mb-3 mt-0">
+                    <input [formControl]="title" (keyup)="getMovies(title)" placeholder="Search..." type="text"
+                        class="form-control my-0" aria-label="Search" aria-describedby="basic-addon2">
+                </div>
+            </div>
+
+            <app-favorites [title]="title"></app-favorites>
+            
+        </nav>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl} from '@angular/forms';
-import { MoviesService } from './movies.service';
+
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-movies',
@@ -9,16 +10,17 @@ import { MoviesService } from './movies.service';
 })
 export class MoviesComponent  {
   title =  new FormControl('');
+  starOn:boolean= false;
+  addItem:boolean;
+  hasResults:boolean = false;
+  favorites: Array<{name:string,count:number}>= [{name:"casa",count:9},{name:"star",count:7},{name:"",count:null}];
 
-
-  constructor(private moviesService:MoviesService) { }
+  constructor(private moviesService:MoviesService) {
+   }
 
   getMovies(title:any){
+    this.starOn= false;
     this.moviesService.getMovies(title);
-  }
-  addFavorite(title:any):void{  
-/*     this.addItem=true;
- */    this.moviesService.incresasesFavorites(title);
   }
 
 }

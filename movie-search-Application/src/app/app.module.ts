@@ -5,10 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 /* own */
-import { DetailResultComponent } from './results/detail-result/detail-result.component';
-import { FavoritesComponent } from './movies/favorites/favorites.component';
-import { MoviesComponent } from './movies/movies.component';
-import { ResultsComponent } from './results/results.component';
+import { DetailResultComponent } from './components/detail-result/detail-result.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { MoviesComponent } from './components/movies/movies.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
