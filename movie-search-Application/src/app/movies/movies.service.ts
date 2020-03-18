@@ -26,7 +26,7 @@ export class MoviesService {
         this.movies=data['Search'];
         this.favoriteService.hasResults=true;  
         this.favoriteService.addItem=false;
-        this.favoriteService.increasesFavorites(movieTitle.value);
+        this.favoriteService.increasesFavorites(movieTitle);
         this.resultsService.setMovies(this.movies);    
         }
     });

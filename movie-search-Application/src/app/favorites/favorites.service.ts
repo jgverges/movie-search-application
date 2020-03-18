@@ -4,31 +4,34 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FavoritesService {
-  addItem:boolean;
-  hasResults:boolean = false;
+  addItem: boolean;
+  exist: boolean;
+  favorites: Array<{ name: string, count: number }> = [{ name: "aa", count: 1 }, { name: "bb", count: 2 }, { name: "", count: null }];
+
+  hasResults: boolean = false;
   items = [{ name: "", count: null }, { name: "", count: null }, { name: "", count: null }];
-  starOn:boolean= false;
-  exist:boolean;
+  starOn: boolean = false;
 
   constructor() { }
 
-  addFavorite(movieTitle){ console.log(this.hasResults);
-    this.addItem=true;
+  addFavorite(movieTitle) {
+    this.addItem = true;
     this.increasesFavorites(movieTitle);
   }
   increasesFavorites(movieTitle) {
     let exist = false;
     if (this.hasResults) {
-      this.starOn=true;
       this.items.forEach(itemV => {
         if (itemV.name == movieTitle.value) {
           exist = true;
           itemV.count++;
+          this.starOn = true;
         }
       });
       if (!exist && this.addItem) {
         this.setFavoritesItems({ name: movieTitle.value, count: 1 });
-      }                               
+        this.starOn = true;
+      }
     }
     /* return exist; */
   }
@@ -44,9 +47,6 @@ export class FavoritesService {
 
   setFavoritesItems(favoritesItems) {
     this.items.push(favoritesItems);
-  }
-  setHasResults(results){
-    this.hasResults=results;
   }
 }
 
