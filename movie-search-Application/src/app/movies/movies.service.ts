@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 
 import { FavoritesService } from '../favorites/favorites.service';
-import { Movie } from '../models/movie';
+import { Movie } from '../detail-result/models/movie';
 import { ResultsService } from '../results/results.service';
 
 @Injectable({
