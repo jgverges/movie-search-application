@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DetailResultService } from './detail-result.service';
 
 @Component({
@@ -6,13 +6,8 @@ import { DetailResultService } from './detail-result.service';
   templateUrl: './detail-result.component.html',
   styleUrls: ['./detail-result.component.scss']
 })
-export class DetailResultComponent implements OnInit {
+export class DetailResultComponent  {
 
   constructor(public detailResultService:DetailResultService) { }
 
-  ngOnInit(): void {
-  }
-  getDetails(){
-
-  }
 }

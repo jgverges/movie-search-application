@@ -13,10 +13,10 @@ import { ResultsComponent } from './results/results.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent,
-    ResultsComponent,
+    DetailResultComponent,
     FavoritesComponent,
-    DetailResultComponent
+    MoviesComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

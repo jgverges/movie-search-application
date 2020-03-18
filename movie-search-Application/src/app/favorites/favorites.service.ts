@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 export class FavoritesService {
   addItem: boolean;
   exist: boolean;
-  favorites: Array<{ name: string, count: number }> = [{ name: "aa", count: 1 }, { name: "bb", count: 2 }, { name: "", count: null }];
-
   hasResults: boolean = false;
   items = [{ name: "", count: null }, { name: "", count: null }, { name: "", count: null }];
   starOn: boolean = false;
@@ -33,7 +31,6 @@ export class FavoritesService {
         this.starOn = true;
       }
     }
-    /* return exist; */
   }
 
   getFavoritesItems() {
@@ -49,4 +46,3 @@ export class FavoritesService {
     this.items.push(favoritesItems);
   }
 }
-

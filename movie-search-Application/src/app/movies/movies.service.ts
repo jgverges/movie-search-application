@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 
+import { FavoritesService } from '../favorites/favorites.service';
 import { Movie } from '../models/movie';
 import { ResultsService } from '../results/results.service';
-import { FavoritesService } from '../favorites/favorites.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,7 @@ import { FavoritesService } from '../favorites/favorites.service';
 
 export class MoviesService {
   movies: [] ;
-/*   starOn:boolean; 
- */
+
   constructor(public http: HttpClient,
               public resultsService: ResultsService,
               public favoriteService:FavoritesService) { }
@@ -24,14 +23,18 @@ export class MoviesService {
     this.getByTitle(movieTitle.value).subscribe(data =>{
       if (data['Response']=="True"){
         this.movies=data['Search'];
-        this.favoriteService.hasResults=true;  
-        this.favoriteService.addItem=false;
-        this.favoriteService.increasesFavorites(movieTitle);
+        this.checkFavorites(movieTitle);
         this.resultsService.setMovies(this.movies);    
         }
     });
   }
-  
+
+  checkFavorites(movieTitle){
+    this.favoriteService.hasResults=true;  
+    this.favoriteService.addItem=false;
+    this.favoriteService.increasesFavorites(movieTitle);
+  }
+
   getByTitle(movieTitle:string):Observable<Movie> {
     return this.http.get<Movie>('http://www.omdbapi.com/?apikey=90493536&s='+movieTitle);
   }

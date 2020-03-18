@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 import { ResultsService } from './results.service';
 import { DetailResultService } from '../detail-result/detail-result.service';
@@ -8,9 +8,8 @@ import { DetailResultService } from '../detail-result/detail-result.service';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent implements OnInit {
-/*   movies=[] ;
- */  details;
+
+export class ResultsComponent  {
 
   constructor(public resultsService:ResultsService,
               public detailsResultService:DetailResultService ) { }
@@ -19,7 +18,4 @@ export class ResultsComponent implements OnInit {
     this.detailsResultService.getDetails(imdbID);
   };
 
-
-  ngOnInit(): void {
-  }
 }

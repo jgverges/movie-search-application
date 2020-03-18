@@ -17,26 +17,27 @@
     <ul id="mostFav" class="navbar-nav mx-auto">
         <li class="nav-item  most " *ngIf="favorites[0].name">
             <a class="nav-link bg-secondary text-white" href="#">
-                {{favorites[0].name}} 
+                {{favorites[0].name}}
                 <span class="counter"> <sub>
-                {{favorites[0].count}}      
-                </sub> </span>
+                        {{favorites[0].count}}
+                    </sub> </span>
             </a>
         </li>
         <li class="nav-item  most" *ngIf="favorites[1].name">
             <a class="nav-link bg-secondary text-white" href="#">
-                {{favorites[1].name}} 
+                {{favorites[1].name}}
                 <span class="counter"><sub>
-                        {{favorites[1].count}}</sub> 
-                </span>
+                        {{favorites[1].count}}
+                    </sub> </span>
+               
             </a>
         </li>
         <li class="nav-item  most" *ngIf="favorites[2].name">
             <a class="nav-link bg-secondary text-white" href="#">
-                {{favorites[2].name}} 
+                {{favorites[2].name}}
                 <span class="counter"><sub>
-                        {{favorites[2].count}}</sub> 
-                </span>
+                        {{favorites[2].count}}
+                    </sub> </span>
             </a>
         </li>
     </ul>
