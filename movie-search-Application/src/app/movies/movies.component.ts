@@ -10,13 +10,11 @@ import { MoviesService } from './movies.service';
 })
 export class MoviesComponent  {
   movieTitle =  new FormControl('');
-  starOn:boolean;
 
   constructor(private moviesService:MoviesService) {
    }
 
   getMovies(movieTitle:any){
-    this.starOn= false;
     this.moviesService.getMovies(movieTitle);
   }
 

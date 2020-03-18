@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class ResultsService {
 
-  movies=[] ;
+  movies = [];
 
   constructor() { }
- 
- setMovies(moviesArr){
-  this.movies=moviesArr;
+
+  setMovies(moviesArr) {
+    this.movies = moviesArr;
   };
 
 }

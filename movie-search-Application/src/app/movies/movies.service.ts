@@ -4,28 +4,30 @@ import { Observable, from } from 'rxjs';
 
 import { Movie } from '../models/movie';
 import { ResultsService } from '../results/results.service';
+import { FavoritesService } from '../favorites/favorites.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MoviesService {
-                      addItem:boolean= false;/*  */
-  hasResults:boolean;/*  */
   movies: [] ;
-              starOn:boolean= false;/*  */
-
+/*   starOn:boolean; 
+ */
   constructor(public http: HttpClient,
-              public resultsService: ResultsService) { }
+              public resultsService: ResultsService,
+              public favoriteService:FavoritesService) { }
  
   getMovies(movieTitle:any){
-    this.hasResults = false;/*  */
+    this.favoriteService.starOn= false;
+    this.favoriteService.hasResults=false;
     this.getByTitle(movieTitle.value).subscribe(data =>{
       if (data['Response']=="True"){
         this.movies=data['Search'];
-        this.hasResults = true;/*  */
-        this.addItem=false;/*  */
-        this.resultsService.setMovies(this.movies);    /* ** */                          console.log(this.movies);/*  */
+        this.favoriteService.hasResults=true;  
+        this.favoriteService.addItem=false;
+        this.favoriteService.increasesFavorites(movieTitle.value);
+        this.resultsService.setMovies(this.movies);    
         }
     });
   }

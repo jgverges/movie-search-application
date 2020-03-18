@@ -1,9 +1,9 @@
 <div class="input-group-append star">
     <span (click)="addFavorite(movieTitle)" class="input-group-text " id="basic-addon2">
-        <ng-template [ngIf]="!starOn" class="p-0 m-0 ">
+        <ng-template [ngIf]="!favoriteService.starOn" class="p-0 m-0 ">
             <i class="material-icons "> star_border </i>
         </ng-template>
-        <ng-template [ngIf]="starOn" class="p-0 m-0">
+        <ng-template [ngIf]="favoriteService.starOn" class="p-0 m-0">
             <i class="material-icons  "> star </i>
         </ng-template>
     </span>

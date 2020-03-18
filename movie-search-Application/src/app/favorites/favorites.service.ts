@@ -4,35 +4,49 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FavoritesService {
-  items=[{name:"",count:null},{name:"",count:null},{name:"",count:null}];
-  hasResults=true;
-/*   favorites;
- */
+  addItem:boolean;
+  hasResults:boolean = false;
+  items = [{ name: "", count: null }, { name: "", count: null }, { name: "", count: null }];
+  starOn:boolean= false;
+  exist:boolean;
+
   constructor() { }
-  
-  setFavoritesItems(favoritesItems){
-    this.items.push(favoritesItems);
+
+  addFavorite(movieTitle){ console.log(this.hasResults);
+    this.addItem=true;
+    this.increasesFavorites(movieTitle);
   }
-  getFavoritesItems(){
-    this.items.sort( (a, b) => {
+  increasesFavorites(movieTitle) {
+    let exist = false;
+    if (this.hasResults) {
+      this.starOn=true;
+      this.items.forEach(itemV => {
+        if (itemV.name == movieTitle.value) {
+          exist = true;
+          itemV.count++;
+        }
+      });
+      if (!exist && this.addItem) {
+        this.setFavoritesItems({ name: movieTitle.value, count: 1 });
+      }                               
+    }
+    /* return exist; */
+  }
+
+  getFavoritesItems() {
+    this.items.sort((a, b) => {
       if (a.count > b.count) return -1;
-      if (a.count < b.count) return 1;     
+      if (a.count < b.count) return 1;
       return 0;
     });
     return this.items;
   }
-  incresasesFavorites(movieTitle){
-    let exist= false;
-    if (this.hasResults)  {                         
-      this.items.forEach(itemV=>{ 
-        if (itemV.name ==movieTitle.value){
-          exist=true;
-          itemV.count++;
-        }      
-      });    
-      if(!exist) {         
-        this.setFavoritesItems({name:movieTitle.value, count:1});
-      }   
-    }
+
+  setFavoritesItems(favoritesItems) {
+    this.items.push(favoritesItems);
+  }
+  setHasResults(results){
+    this.hasResults=results;
   }
 }
+
